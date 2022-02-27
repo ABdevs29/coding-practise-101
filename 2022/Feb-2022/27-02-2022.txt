@@ -1,0 +1,44 @@
+Q- Given a string S of length N, find if it forms a double string after deleting 1 character.
+Examples of double strings(meme,rara,fashionfashion).
+Input Size : 1 <= N <= 100000
+Sample Testcases :
+INPUT
+abxxab
+OUTPUT
+NO
+
+Soln)
+    let str = userInput[0];
+    
+    for (let i = 0; i< str.length; i++) {
+        let temp = str;
+        let temp1 = str;
+        temp1.split("");
+        temp.split(temp1[i]);
+        if (temp[0] == temp[1]) {
+            console.log('YES');
+            break;
+        } else if (i == str.length - 1) {
+            console.log('NO');
+        }
+    }
+
+Q) Given an arraylist A of string type which has name#mark1#mark2#mark3 format. Retrieve the name of the student who has scored max marks(total of three).
+for eg: input: {'arun#12#12#12','deepak#13#12#12'}
+output: Deepak 
+Input Size : A <= 100000 
+Sample Testcase :
+INPUT
+arun#12#12#12
+deepak#13#12#12
+OUTPUT
+deepak
+
+Soln)     let firstStudent = userInput[0].split("#");
+    let secondStudent = userInput[1].split("#");
+    
+    if (+firstStudent[1] + +firstStudent[2] + +firstStudent[3] > +secondStudent[1] + +secondStudent[2] + +secondStudent[3]) {
+        console.log(firstStudent[0]);
+    } else {
+        console.log(secondStudent[0]);
+    }
