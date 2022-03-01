@@ -1,0 +1,60 @@
+Q) You are given with a queue. Your task is to reverse the queue elements and print it.
+
+
+Input Description:
+You are given a number ‘n’,denoting size of queue, Next line contains s space separated numbers
+
+Output Description:
+Print the reversed queue.
+
+Sample Input :
+6
+1 2 3 4 5 6
+Sample Output :
+6 5 4 3 2 1
+
+Soln)     let n = +userInput[0];
+    let queue = userInput[1].split(' ');
+    let result = [];
+    
+    for (let i = n -1 ; i >= 0 ; i--) {
+        result.push(queue[i]);
+    }
+    console.log(result.join(" "));
+
+
+Q) Ramesh is searching a solution to problem posted. The statement is as follows
+
+Print the maximum sum produced by increasing subarray. Ramesh is very confused to see the question,Help him.
+
+
+Input Description:
+You are given a number ‘n’,Then next line contains n space separated numbers.
+
+Output Description:
+Maximum sum value produced by the increasing sub array of size 'n'
+
+Sample Input :
+6
+2 1 4 7 3 6
+Sample Output :
+12
+
+Soln)
+    let n = +userInput[0];
+    let arr = userInput[1].split(" ");
+    let maxSum = 0;
+    let temp = 0;
+    
+    for (let i = 0; i < n; i++) {
+        if (i === 0) {
+            temp += +arr[i];
+        } else if (+arr[i] > +arr[i -1]) {
+            temp += +arr[i];
+        } else {
+            temp > maxSum ? maxSum = temp : '';
+            temp = 0;
+            temp += +arr[i];
+        }
+    }
+    console.log(maxSum);
