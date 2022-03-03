@@ -1,0 +1,50 @@
+Q)
+ Joseph was going through topic of strings. He learnt about anagrams. But due to some circumstances he forget ,now he hired you to help him in completing the work.Your task is to tell whether the two given strings are anagrams
+
+
+Input Description:
+The first line of the input is a string N, the second line of the input is a string M
+
+Output Description:
+Compare the two string input N and M. Print 1 if they are anagram else print 0.
+
+Sample Input :
+abcd
+cdab
+Sample Output :
+1
+
+Soln)
+    let arr1 = userInput[0].split('');
+    let arr2 = userInput[1].split('');
+    
+    if (arr1.sort().join('') === arr2.sort().join('')) {
+        console.log(1);
+    } else {
+        console.log(0);
+    }
+
+
+Q) Unique sort using breadcrumbs technique
+//Task: Transform this simple sorting algorithm into a unique sort. 
+// It should not return any duplicate values in the sorted array.
+
+//input: [1,5,2,1] => output: [1,2,5]
+//input: [4,2,2,3,2,2,2] => output: [2,3,4]
+
+const uniqSort = function(arr) {
+    const breadcrumbs = {};
+  let result = [];
+
+  for (let i = 0; i< arr.length; i++) {
+    if (breadcrumbs[arr[i]]) {
+      
+    } else {
+      result.push(arr[i]);
+      breadcrumbs[arr[i]] = true;
+    }
+  }
+    return result.sort((a, b) => a - b);
+};
+
+console.log(uniqSort([1,5,2,1])); // => [2,3,4]
