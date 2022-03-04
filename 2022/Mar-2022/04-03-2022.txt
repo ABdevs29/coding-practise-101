@@ -1,0 +1,86 @@
+Q)
+Given a number N and 2 arrays of N integers and their weights, sort the array based on their weights in the ascending order.
+Input Size : N <= 100000
+Sample Testcase :
+INPUT
+5
+1 2 3 4 5
+5 4 3 2 1
+OUTPUT
+5 4 3 2 1
+
+Soln)
+    let n = +userInput[0];
+    let arr = userInput[1].split(" ");
+    let weights = userInput[2].split(" ");
+    let dummy = [...weights];
+    dummy.sort((a, b) => (a-b));
+    let result = [];
+    
+    for (let i = 0; i < n; i++) {
+        let index = weights.indexOf(dummy[i]);
+        result[i] = arr[index]; 
+    }
+    console.log(result.join(" "));
+
+Q) 
+Given an array of numbers and another number k. Find whether K exists and the number of time k repeats. If it does not exist just print no.
+Input Size : |N| <= 1000000
+Sample Testcase :
+INPUT
+5 3
+3 3 4 4 7
+OUTPUT
+yes 2
+
+Soln)
+    let dummy = userInput[0].split(" ");
+    let n = +dummy[0];
+    let k = +dummy[1];
+    let arr = userInput[1].split(" ");
+    let count = 0;
+    
+    for (let i = 0; i< n; i++) {
+        if (+arr[i] === k) {
+            count++;
+        }
+    }
+    
+    if (count != 0) {
+        console.log("yes", count);
+    } else {
+        console.log("no");
+    }
+
+
+
+Caching / Memoization example from replit:
+
+// Task 1: Write a function, times10, that takes an argument, n, and multiples n times 10
+// a simple multiplication fn
+const times10 = (n) => {
+  return n * 10;
+};
+
+console.log('~~~~~~~~~~~~~~TASK 1~~~~~~~~~~~~~~');
+console.log('times10 returns:', times10(9));
+
+// Task 2: Use an object to cache the results of your times10 function. 
+// protip 1: Create a function that checks if the value for n has been calculated before.
+// protip 2: If the value for n has not been calculated, calculate and then save the result in the cache object.
+
+const cache = {};
+
+const memoTimes10 = (n) => {
+  if (cache[n]) {
+    return cache[n];
+  } else {
+    const result = times10(n);
+    cache[n] = result;
+    return result;
+  }
+}
+
+console.log('~~~~~~~~~~~~~~TASK 2~~~~~~~~~~~~~~');
+console.log('Task 2 calculated value:', memoTimes10(9));	// calculated
+console.log('Task 2 cached value:', memoTimes10(9));	// cached
